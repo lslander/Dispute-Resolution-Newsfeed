@@ -1,0 +1,626 @@
+<!doctype html>
+<html lang="fi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="Riidanratkaisu: oikeuskäytäntö, välimiesmenettely ja prosessi">
+<title>Dispute Resolution Newsfeed</title>
+<link rel="alternate" type="application/rss+xml" title="Dispute Resolution Newsfeed" href="feed.xml">
+<style>
+  /* Bird & Birdin ilme: petroli #005C82, korostus #FFA169, vaalea mintunvihreä
+     #EBF8F6. Otsikot Georgialla, leipäteksti groteskilla. Georgia on valmiina
+     joka koneessa, joten ulkoisia fonttilatauksia ei tarvita ja sivu pysyy
+     yhtenä tiedostona. Se pitää myös kävijän IP-osoitteen poissa Googlen
+     palvelimilta, mikä on tietosuojasivulla oma pointtinsa. */
+  :root {
+    --bg: #f3f8f9; --card: #ffffff; --ink: #10323f; --muted: #4a626e;
+    --line: #dae7eb; --accent: #005C82; --hot: #fff3ea; --hotline: #ffc9a3;
+    --ok: #1c6b4d; --fail: #9a3412;
+    --serif: Georgia, "Times New Roman", "Iowan Old Style", serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#0d1f27; --card:#142c36; --ink:#e7f1f3; --muted:#a3bcc6;
+            --line:#23414d; --accent:#7ec2df; --hot:#2b2119; --hotline:#7a4e2c;
+            --ok:#7fd4ad; --fail:#f2a880; }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin:0; background:var(--bg); color:var(--ink);
+         font:16px/1.55 "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+              system-ui, sans-serif;
+         overflow-wrap: break-word; }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 28px 20px 80px; }
+
+  /* Näppäimistöfokus pitää näkyä. Kaikki suodattimet ovat nappeja ja niitä
+     selataan sarkaimella. */
+  a:focus-visible, button:focus-visible, input:focus-visible, summary:focus-visible {
+    outline: 3px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+
+  .skip { position:absolute; left:-9999px; }
+  .skip:focus { position:static; display:inline-block; margin-bottom:12px;
+    padding:8px 12px; background:var(--accent); color:#fff; border-radius:6px; }
+
+  header h1 { font-family: var(--serif); font-weight: 400; font-size: 1.9rem;
+    margin: 0 0 6px; letter-spacing: -0.005em; color: var(--accent); }
+  header p.lede { margin: 0 0 10px; color: var(--muted);
+    font-family: var(--serif); font-style: italic; font-size: 1.02rem; }
+  .intro { margin: 14px 0 0; font-size: 0.93rem; max-width: 62ch; }
+  .intro p { margin: 0 0 8px; }
+  .meta { margin-top: 14px; color: var(--muted); font-size: 0.83rem; }
+  .meta a { color: var(--accent); }
+  .meta b { color: var(--ink); font-weight: 700; }
+
+  /* Lähdepaneeli. Suljettuna oletuksena, koska se on taustatietoa. */
+  details.sources { margin-top:16px; border:1px solid var(--line);
+    border-radius:10px; background:var(--card); }
+  details.sources > summary { cursor:pointer; padding:11px 14px;
+    font-size:0.86rem; font-weight:600; color:var(--accent); }
+  details.sources[open] > summary { border-bottom:1px solid var(--line); }
+  .srcbody { padding:12px 14px 14px; }
+  .srcbody p { margin:0 0 10px; font-size:0.85rem; color:var(--muted); max-width:62ch; }
+  ul.srclist { list-style:none; margin:0; padding:0;
+    display:grid; grid-template-columns:repeat(auto-fill, minmax(230px, 1fr)); gap:4px 16px; }
+  ul.srclist li { font-size:0.82rem; display:flex; gap:8px; align-items:baseline;
+    padding:3px 0; border-bottom:1px dotted var(--line); }
+  .dot { flex:0 0 auto; font-weight:700; font-size:0.72rem; letter-spacing:0.03em; }
+  .dot.ok { color:var(--ok); }
+  .dot.fail { color:var(--fail); }
+  .srcname { flex:1 1 auto; }
+  .srcnum { flex:0 0 auto; color:var(--muted); font-variant-numeric:tabular-nums; }
+
+  /* min-inline-size on fieldsetissä oletuksena min-content, ei 0 kuten
+     muilla lohkoelementeillä. Ilman nollausta nappirivi venyttää koko sivun
+     leveämmäksi kuin ruutu ja puhelin zoomaa ulos, jolloin teksti näyttää
+     yhdeltä pätkältä. */
+  fieldset.controls { border:0; margin:22px 0 0; padding:0;
+    min-inline-size:0; max-width:100%; }
+  fieldset.controls legend { font-size:0.75rem; text-transform:uppercase;
+    letter-spacing:0.08em; color:var(--muted); font-weight:700; padding:0;
+    margin-bottom:7px; }
+  .searchrow { display:flex; gap:8px; flex-wrap:wrap; align-items:center;
+    min-width:0; max-width:100%; }
+  input[type=search] { flex:1 1 240px; min-width:0; padding:10px 12px;
+    border:1px solid var(--line); border-radius:8px; background:var(--card);
+    color:var(--ink); font-size:1rem; font-family:inherit; }
+  .chiprow { display:flex; gap:7px; flex-wrap:wrap; margin-top:7px;
+    min-width:0; max-width:100%; }
+  .chip { padding:7px 12px; border:1px solid var(--line); border-radius:999px;
+    background:var(--card); color:var(--muted); font-size:0.82rem; cursor:pointer;
+    font-family:inherit; white-space:nowrap; }
+  .chip:hover { border-color:var(--accent); color:var(--accent); }
+  .chip[aria-pressed=true] { background:var(--accent); color:#ffffff; border-color:var(--accent); }
+  .chip.reset { border-style:dashed; }
+  .count { margin:14px 0 0; font-size:0.83rem; color:var(--muted); }
+
+  .daygroup { margin-top: 26px; }
+  .daygroup > h2 { font-size:0.78rem; text-transform:uppercase; letter-spacing:0.09em;
+    color:var(--muted); font-weight:700; margin:0 0 10px;
+    padding-bottom:6px; border-bottom:1px solid var(--line); }
+  article { background:var(--card); border:1px solid var(--line); border-radius:10px;
+    padding:14px 16px; margin-bottom:10px; }
+  article.hot { background:var(--hot); border-color:var(--hotline); }
+  article a.t { font-family:var(--serif); color:var(--ink); text-decoration:none;
+    font-weight:600; font-size:1.06rem; line-height:1.4; overflow-wrap:anywhere; }
+  article a.t:hover { color:var(--accent); text-decoration:underline; }
+  .court { display:inline-block; font-size:0.72rem; font-weight:700; letter-spacing:0.05em;
+    text-transform:uppercase; color:var(--accent); margin-bottom:4px; }
+  .kw { margin:6px 0 0; color:var(--muted); font-size:0.87rem; }
+  .tags { margin-top:8px; display:flex; gap:6px; flex-wrap:wrap; }
+  .tag { font-size:0.7rem; color:var(--muted); border:1px solid var(--line);
+    padding:2px 7px; border-radius:999px; }
+  .tag.topic { color:var(--accent); border-color:var(--accent); }
+  .tag.important { color:var(--fail); border-color:var(--hotline); font-weight:700; }
+  /* Korallinen "uusi"-merkki on Bird & Birdin korostusväri. Täytetty pilleri,
+     koska #FFA169 tekstinä vaalealla taustalla ei täytä kontrastivaatimusta. */
+  .tag.new { background:#FFA169; color:#3a1f0c; border-color:#FFA169; font-weight:700; }
+  footer { margin-top:48px; padding-top:18px; border-top:1px solid var(--line);
+    color:var(--muted); font-size:0.8rem; }
+  footer a { color:var(--accent); }
+  footer p { margin:0 0 8px; max-width:62ch; }
+  .empty { color:var(--muted); padding:36px 0; }
+
+  /* Kapea ruutu. Puhelimessa sivua katsotaan pystyasennossa noin 360
+     pikselin levyisenä, ja siinä leveydessä sarakkeet ja isot marginaalit
+     vain vievät tilaa. */
+  @media (max-width: 560px) {
+    .wrap { padding: 20px 14px 56px; }
+    header h1 { font-size: 1.5rem; }
+    header p.lede { font-size: 0.95rem; }
+    .intro { font-size: 0.9rem; }
+    ul.srclist { grid-template-columns: 1fr; }
+    article { padding: 12px 13px; }
+    article a.t { font-size: 1rem; }
+    /* Napit vierivät vaakasuunnassa sen sijaan että ne pakkautuisivat
+       moneen riviin ja työntäisivät listan ruudun alareunaan. */
+    .chiprow { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 6px;
+      scrollbar-width: thin; -webkit-overflow-scrolling: touch; }
+    .chip { font-size: 0.8rem; padding: 8px 12px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * { scroll-behavior: auto !important; transition: none !important; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="skip" href="#list">Siirry ratkaisuihin</a>
+
+<header>
+  <h1>Dispute Resolution Newsfeed</h1>
+  <p class="lede">Riidanratkaisu: oikeuskäytäntö, välimiesmenettely ja prosessi</p>
+
+  <div class="intro">
+    <p>Sivu kokoaa yhteen riidanratkaisua koskevat ratkaisut, välimiesmenettelyn
+    ja prosessin 10 lähteestä.
+    Mukaan pääsevät jutut, joiden otsikossa, asiasanoissa tai tiivistelmässä on
+    ainakin yksi seurattavista termeistä. Aikaikkuna on 120 päivää.</p>
+    <p>Haku ajetaan automaattisesti joka aamu. Aineisto on julkista ja tulee
+    suoraan kunkin viranomaisen omasta syötteestä. Sivulla ei ole seurantaa,
+    evästeitä eikä ulkoisia fonttilatauksia.</p>
+  </div>
+
+  <p class="meta">
+    Päivitetty <b>11.11.2026 klo 09:01</b> · <b>15</b> ratkaisua ·
+    <b>15</b> uutta edellisen ajon jälkeen ·
+    <a href="feed.xml">RSS</a> · <a href="data.json">JSON</a>
+  </p>
+
+  <details class="sources">
+    <summary>Lähteiden tila: 10/10 vastasi</summary>
+    <div class="srcbody">
+      <p>Luku kertoo, montako juttua lähteestä saatiin ennen avainsanasuodatusta.
+      Nolla tarkoittaa, että lähde vastasi mutta sillä ei ollut mitään aikaikkunan
+      sisällä. Punainen merkintä tarkoittaa, että lähdettä ei saatu, jolloin sen
+      aineisto puuttuu tältä sivulta.</p>
+      <ul class="srclist">
+        
+        <li>
+          <span class="dot ok" aria-hidden="true">●</span>
+          <span class="srcname">Edilex, uutiset<span class="skip">, vastasi</span></span>
+          <span class="srcnum">74</span>
+        </li>
+        
+        <li>
+          <span class="dot ok" aria-hidden="true">●</span>
+          <span class="srcname">Hovioikeuksien ratkaisut<span class="skip">, vastasi</span></span>
+          <span class="srcnum">100</span>
+        </li>
+        
+        <li>
+          <span class="dot ok" aria-hidden="true">●</span>
+          <span class="srcname">Korkeimman oikeuden ennakkopäätökset<span class="skip">, vastasi</span></span>
+          <span class="srcnum">15</span>
+        </li>
+        
+        <li>
+          <span class="dot ok" aria-hidden="true">●</span>
+          <span class="srcname">Markkinaoikeuden ratkaisut<span class="skip">, vastasi</span></span>
+          <span class="srcnum">30</span>
+        </li>
+        
+        <li>
+          <span class="dot ok" aria-hidden="true">●</span>
+          <span class="srcname">Suomen Asianajajaliitto<span class="skip">, vastasi</span></span>
+          <span class="srcnum">10</span>
+        </li>
+        
+        <li>
+          <span class="dot ok" aria-hidden="true">●</span>
+          <span class="srcname">Tuomioistuinlaitos<span class="skip">, vastasi</span></span>
+          <span class="srcnum">29</span>
+        </li>
+        
+        <li>
+          <span class="dot ok" aria-hidden="true">●</span>
+          <span class="srcname">Työtuomioistuimen ratkaisut<span class="skip">, vastasi</span></span>
+          <span class="srcnum">15</span>
+        </li>
+        
+        <li>
+          <span class="dot ok" aria-hidden="true">●</span>
+          <span class="srcname">Unionin tuomioistuimen lehdistötiedotteet<span class="skip">, vastasi</span></span>
+          <span class="srcnum">10</span>
+        </li>
+        
+        <li>
+          <span class="dot ok" aria-hidden="true">●</span>
+          <span class="srcname">Unionin tuomioistuin (EUT ja unionin yleinen tuomioistuin)<span class="skip">, vastasi</span></span>
+          <span class="srcnum">7</span>
+        </li>
+        
+        <li>
+          <span class="dot ok" aria-hidden="true">●</span>
+          <span class="srcname">Vakuutusoikeuden ratkaisut<span class="skip">, vastasi</span></span>
+          <span class="srcnum">15</span>
+        </li>
+        
+      </ul>
+      
+      <p style="margin-top:12px">Käsin tarkistettavat lähteet, joista ei saa
+      koneluettavaa aineistoa: käräjäoikeuksien ratkaisuselosteet, välitystuomiot (FAI, ei-julkisia), Bird & Birdin omat julkaisut.</p>
+      
+    </div>
+  </details>
+</header>
+
+<fieldset class="controls">
+  <legend>Rajaa</legend>
+  <div class="searchrow">
+    <label class="skip" for="q">Hakusana</label>
+    <input type="search" id="q" placeholder="Hae otsikoista ja asiasanoista">
+    <button type="button" class="chip reset" id="reset">Tyhjennä rajaukset</button>
+  </div>
+  
+  <div class="chiprow" role="group" aria-label="Rajaa aiheen mukaan">
+    <button type="button" class="chip" data-topic="prosessi ja todistelu" aria-pressed="false">Prosessi ja todistelu</button><button type="button" class="chip" data-topic="sopimus ja vahingonkorvaus" aria-pressed="false">Sopimus ja vahingonkorvaus</button><button type="button" class="chip" data-topic="täytäntöönpano ja turvaamistoimet" aria-pressed="false">Täytäntöönpano ja turvaamistoimet</button><button type="button" class="chip" data-topic="välimiesmenettely" aria-pressed="false">Välimiesmenettely</button>
+  </div>
+  
+  <div class="chiprow" role="group" aria-label="Rajaa lähteen mukaan">
+    <button type="button" class="chip" data-court="Asianajajaliitto" aria-pressed="false">Asianajajaliitto</button><button type="button" class="chip" data-court="EUT" aria-pressed="false">EUT</button><button type="button" class="chip" data-court="Edilex" aria-pressed="false">Edilex</button><button type="button" class="chip" data-court="Hovioikeus" aria-pressed="false">Hovioikeus</button><button type="button" class="chip" data-court="KKO" aria-pressed="false">KKO</button><button type="button" class="chip" data-court="MAO" aria-pressed="false">MAO</button><button type="button" class="chip" data-court="TT" aria-pressed="false">TT</button>
+  </div>
+</fieldset>
+
+<p class="count" id="count" role="status" aria-live="polite">15 ratkaisua näkyvissä</p>
+
+<main id="list">
+
+  <section class="daygroup">
+    <h2>10. marraskuuta 2026</h2>
+    
+    <article class="hot"
+             data-court="Edilex"
+             data-topics="prosessi ja todistelu"
+             data-text="hovioikeus alensi yhtiön oman juristin työstä vaadittuja oikeudenkäyntikuluja merkittävästi  ">
+      <span class="court">Edilex</span>
+      <div><a class="t" href="https://www.edilex.fi/uutiset/103798" target="_blank" rel="noopener">Hovioikeus alensi yhtiön oman juristin työstä vaadittuja oikeudenkäyntikuluja merkittävästi</a></div>
+      
+      
+      <div class="tags">
+        <span class="tag new">uusi</span>
+        <span class="tag important">tärkeä</span>
+        <span class="tag topic">Prosessi ja todistelu</span>
+        <span class="tag">oikeudenkäyn</span><span class="tag">oikeudenkäyntikul</span>
+      </div>
+    </article>
+    
+    <article class=""
+             data-court="Edilex"
+             data-topics="prosessi ja todistelu"
+             data-text="lakikirjastossa julkaistua: todistelutallenneuudistuksen viittausmenettely hovioikeudessa  ">
+      <span class="court">Edilex</span>
+      <div><a class="t" href="https://www.edilex.fi/uutiset/103811" target="_blank" rel="noopener">Lakikirjastossa julkaistua: Todistelutallenneuudistuksen viittausmenettely hovioikeudessa</a></div>
+      
+      
+      <div class="tags">
+        <span class="tag new">uusi</span>
+        
+        <span class="tag topic">Prosessi ja todistelu</span>
+        
+      </div>
+    </article>
+    
+  </section>
+
+  <section class="daygroup">
+    <h2>5. marraskuuta 2026</h2>
+    
+    <article class="hot"
+             data-court="Edilex"
+             data-topics="välimiesmenettely"
+             data-text="vierashuoneessa  otk, väitöskirjatutkija janne ripatti: cas:n venäjä-ratkaisu – lajiliittojen säännöt ja turvallisuustoimivallan rajat avoin urheilun kansainvälinen välitystuomioistuin cas kumosi 30.1  ">
+      <span class="court">Edilex</span>
+      <div><a class="t" href="https://www.edilex.fi/uutiset/103736" target="_blank" rel="noopener">Vierashuoneessa  OTK, väitöskirjatutkija Janne Ripatti: CAS:n Venäjä-ratkaisu – lajiliittojen säännöt ja turvallisuustoimivallan rajat Avoin Urheilun kansainvälinen välitystuomioistuin CAS kumosi 30.1</a></div>
+      
+      
+      <div class="tags">
+        <span class="tag new">uusi</span>
+        <span class="tag important">tärkeä</span>
+        <span class="tag topic">Välimiesmenettely</span>
+        <span class="tag">välitystuomio</span>
+      </div>
+    </article>
+    
+    <article class=""
+             data-court="Edilex"
+             data-topics="täytäntöönpano ja turvaamistoimet"
+             data-text="hovioikeus: takaisinsaannin jälkeen tehty sovinto oikeutti kuluttajan osittaiseen kulukorvaukseen  ">
+      <span class="court">Edilex</span>
+      <div><a class="t" href="https://www.edilex.fi/uutiset/103738" target="_blank" rel="noopener">Hovioikeus: Takaisinsaannin jälkeen tehty sovinto oikeutti kuluttajan osittaiseen kulukorvaukseen</a></div>
+      
+      
+      <div class="tags">
+        <span class="tag new">uusi</span>
+        
+        <span class="tag topic">Täytäntöönpano ja turvaamistoimet</span>
+        <span class="tag">takaisinsaan</span><span class="tag">sovinto</span>
+      </div>
+    </article>
+    
+  </section>
+
+  <section class="daygroup">
+    <h2>27. lokakuuta 2026</h2>
+    
+    <article class=""
+             data-court="Hovioikeus"
+             data-topics="prosessi ja todistelu"
+             data-text="tho:2026:2 ylimääräinen muutoksenhaku – kantelu, oikeudenmukainen oikeudenkäynti ">
+      <span class="court">Hovioikeus</span>
+      <div><a class="t" href="https://www.tuomioistuimet.fi/ratkaisut/tho20262/" target="_blank" rel="noopener">THO:2026:2</a></div>
+      <p class="kw">Ylimääräinen muutoksenhaku – Kantelu, Oikeudenmukainen oikeudenkäynti</p>
+      
+      <div class="tags">
+        <span class="tag new">uusi</span>
+        
+        <span class="tag topic">Prosessi ja todistelu</span>
+        <span class="tag">oikeudenkäyn</span><span class="tag">ylimääräinen muutoksenhaku</span>
+      </div>
+    </article>
+    
+  </section>
+
+  <section class="daygroup">
+    <h2>14. lokakuuta 2026</h2>
+    
+    <article class=""
+             data-court="Asianajajaliitto"
+             data-topics="täytäntöönpano ja turvaamistoimet"
+             data-text="lausunto ihmiskaupan vastaisesta toiminnasta tehdyn euroopan neuvoston yleissopimuksen täytäntöönpanon neljännestä valvontakierroksesta  artikkeli  julkaistiin ensimmäisen kerran suomen asianajajat .">
+      <span class="court">Asianajajaliitto</span>
+      <div><a class="t" href="https://asianajajat.fi/2026/10/14/lausunto-euroopan-neuvostolle-ihmiskaupan-vastaisesta-toiminnasta-tehdyn-yleissopimuksen-taytantoonpanon-neljannesta-valvontakierroksesta/" target="_blank" rel="noopener">Lausunto ihmiskaupan vastaisesta toiminnasta tehdyn Euroopan neuvoston yleissopimuksen täytäntöönpanon neljännestä valvontakierroksesta</a></div>
+      
+      <p class="kw">Artikkeli  julkaistiin ensimmäisen kerran Suomen Asianajajat .</p>
+      <div class="tags">
+        <span class="tag new">uusi</span>
+        
+        <span class="tag topic">Täytäntöönpano ja turvaamistoimet</span>
+        
+      </div>
+    </article>
+    
+  </section>
+
+  <section class="daygroup">
+    <h2>6. lokakuuta 2026</h2>
+    
+    <article class="hot"
+             data-court="MAO"
+             data-topics="täytäntöönpano ja turvaamistoimet"
+             data-text="mao:482/2026 turvaamistoimi – välliaikainen kielto – sopimaton menettely elinkeinotoiminnassa ">
+      <span class="court">MAO</span>
+      <div><a class="t" href="https://www.markkinaoikeus.fi/ratkaisut/ratkaisujen-arkisto/mao482-2026/" target="_blank" rel="noopener">MAO:482/2026</a></div>
+      <p class="kw">turvaamistoimi – välliaikainen kielto – sopimaton menettely elinkeinotoiminnassa</p>
+      
+      <div class="tags">
+        <span class="tag new">uusi</span>
+        <span class="tag important">tärkeä</span>
+        <span class="tag topic">Täytäntöönpano ja turvaamistoimet</span>
+        
+      </div>
+    </article>
+    
+  </section>
+
+  <section class="daygroup">
+    <h2>1. lokakuuta 2026</h2>
+    
+    <article class="hot"
+             data-court="EUT"
+             data-topics="prosessi ja todistelu"
+             data-text="c-459/25, tuomio ennakkoratkaisupyyntö – kuluttajansuoja – direktiivi 93/13/ety – 6 artiklan 1 kohta ja 7 artiklan 1 kohta – kuluttajasopimusten kohtuuttomat ehdot – vuokrasopimus – ehto, jonka mukaan vuokralainen vastaa kaikista tuomioistuinmenettelystä aiheutuvista kuluista, jos hän ei täytä sopimusvelvoitteitaan – kyseisen ehdon kohtuuttomaksi toteamisen vaikutukset – kansallisen oikeuden dispositiivisten säännösten soveltaminen – oikeudenkäyntikulujen jakaminen ja vahvistaminen tuomioistuinmenettelyssä – jäsenvaltioiden menettelyllinen autonomia – tehokkuusperiaate ecli:eu:c:2026:810">
+      <span class="court">EUT</span>
+      <div><a class="t" href="https://eur-lex.europa.eu/legal-content/FI/TXT/?uri=CELEX:62025CJ0459" target="_blank" rel="noopener">C-459/25, tuomio</a></div>
+      <p class="kw">Ennakkoratkaisupyyntö – Kuluttajansuoja – Direktiivi 93/13/ETY – 6 artiklan 1 kohta ja 7 artiklan 1 kohta – Kuluttajasopimusten kohtuuttomat ehdot – Vuokrasopimus – Ehto, jonka mukaan vuokralainen vastaa kaikista tuomioistuinmenettelystä aiheutuvista kuluista, jos hän ei täytä sopimusvelvoitteitaan – Kyseisen ehdon kohtuuttomaksi toteamisen vaikutukset – Kansallisen oikeuden dispositiivisten säännösten soveltaminen – Oikeudenkäyntikulujen jakaminen ja vahvistaminen tuomioistuinmenettelyssä – Jäsenvaltioiden menettelyllinen autonomia – Tehokkuusperiaate</p>
+      
+      <div class="tags">
+        <span class="tag new">uusi</span>
+        <span class="tag important">tärkeä</span>
+        <span class="tag topic">Prosessi ja todistelu</span>
+        <span class="tag">oikeudenkäyn</span><span class="tag">oikeudenkäyntikul</span>
+      </div>
+    </article>
+    
+  </section>
+
+  <section class="daygroup">
+    <h2>29. syyskuuta 2026</h2>
+    
+    <article class=""
+             data-court="KKO"
+             data-topics="prosessi ja todistelu"
+             data-text="kko:2026:72 oikeusapu, asiantuntija – asianosaisen käyttämä asiantuntija, todistelukustannukset ">
+      <span class="court">KKO</span>
+      <div><a class="t" href="https://www.korkeinoikeus.fi/ennakkopaatokset/ennakkopaatokset-vuosittain/kko202672/" target="_blank" rel="noopener">KKO:2026:72</a></div>
+      <p class="kw">Oikeusapu, Asiantuntija – Asianosaisen käyttämä asiantuntija, Todistelukustannukset</p>
+      
+      <div class="tags">
+        <span class="tag new">uusi</span>
+        
+        <span class="tag topic">Prosessi ja todistelu</span>
+        
+      </div>
+    </article>
+    
+  </section>
+
+  <section class="daygroup">
+    <h2>28. syyskuuta 2026</h2>
+    
+    <article class=""
+             data-court="KKO"
+             data-topics="prosessi ja todistelu"
+             data-text="kko:2026:71 syyte – syytteen peruuttaminen, muutoksenhaku – muutoksenhakuoikeus, oikeudenkäyntimenettely – tyytymättömyyden ilmoittaminen ">
+      <span class="court">KKO</span>
+      <div><a class="t" href="https://www.korkeinoikeus.fi/ennakkopaatokset/ennakkopaatokset-vuosittain/kko202671/" target="_blank" rel="noopener">KKO:2026:71</a></div>
+      <p class="kw">Syyte – Syytteen peruuttaminen, Muutoksenhaku – Muutoksenhakuoikeus, Oikeudenkäyntimenettely – Tyytymättömyyden ilmoittaminen</p>
+      
+      <div class="tags">
+        <span class="tag new">uusi</span>
+        
+        <span class="tag topic">Prosessi ja todistelu</span>
+        <span class="tag">oikeudenkäyn</span>
+      </div>
+    </article>
+    
+    <article class=""
+             data-court="TT"
+             data-topics="sopimus ja vahingonkorvaus"
+             data-text="tt 2026:33 keskituntiansio – palkkasaatavat – työehtosopimuksen pakottavuus – vanhentuminen ">
+      <span class="court">TT</span>
+      <div><a class="t" href="https://www.tyotuomioistuin.fi/ratkaisut/ratkaisujen-arkisto/tt-202633/" target="_blank" rel="noopener">TT 2026:33</a></div>
+      <p class="kw">Keskituntiansio – Palkkasaatavat – Työehtosopimuksen pakottavuus – Vanhentuminen</p>
+      
+      <div class="tags">
+        <span class="tag new">uusi</span>
+        
+        <span class="tag topic">Sopimus ja vahingonkorvaus</span>
+        <span class="tag">vanhentumin</span>
+      </div>
+    </article>
+    
+  </section>
+
+  <section class="daygroup">
+    <h2>17. syyskuuta 2026</h2>
+    
+    <article class=""
+             data-court="TT"
+             data-topics="sopimus ja vahingonkorvaus"
+             data-text="tt 2026:32 lausuntoasia – palkkaryhmittely – työehtosopimuksen tulkinta ">
+      <span class="court">TT</span>
+      <div><a class="t" href="https://www.tyotuomioistuin.fi/ratkaisut/ratkaisujen-arkisto/1413/" target="_blank" rel="noopener">TT 2026:32</a></div>
+      <p class="kw">Lausuntoasia – Palkkaryhmittely – Työehtosopimuksen tulkinta</p>
+      
+      <div class="tags">
+        <span class="tag new">uusi</span>
+        
+        <span class="tag topic">Sopimus ja vahingonkorvaus</span>
+        <span class="tag">sopimuksen tulkin</span>
+      </div>
+    </article>
+    
+  </section>
+
+  <section class="daygroup">
+    <h2>7. syyskuuta 2026</h2>
+    
+    <article class=""
+             data-court="Hovioikeus"
+             data-topics="prosessi ja todistelu"
+             data-text="helho:2026:8 oikeudenkäynnin julkisuus – tietopyyntö, tietosuoja, väliintulo ">
+      <span class="court">Hovioikeus</span>
+      <div><a class="t" href="https://www.tuomioistuimet.fi/ratkaisut/helho20268/" target="_blank" rel="noopener">HelHO:2026:8</a></div>
+      <p class="kw">Oikeudenkäynnin julkisuus – Tietopyyntö, Tietosuoja, Väliintulo</p>
+      
+      <div class="tags">
+        <span class="tag new">uusi</span>
+        
+        <span class="tag topic">Prosessi ja todistelu</span>
+        <span class="tag">oikeudenkäyn</span>
+      </div>
+    </article>
+    
+  </section>
+
+  <section class="daygroup">
+    <h2>27. elokuuta 2026</h2>
+    
+    <article class=""
+             data-court="Hovioikeus"
+             data-topics=""
+             data-text="helho:2026:9 kansainvälinen prosessioikeus – yhdistyneiden kansakuntien merioikeusyleissopimus, tuomioistuimen toimivalta, rikosoikeuden soveltamisala – suomen rikosoikeuden alueellinen ulottuvuus ">
+      <span class="court">Hovioikeus</span>
+      <div><a class="t" href="https://www.tuomioistuimet.fi/ratkaisut/helho20269/" target="_blank" rel="noopener">HelHO:2026:9</a></div>
+      <p class="kw">Kansainvälinen prosessioikeus – Yhdistyneiden Kansakuntien merioikeusyleissopimus, Tuomioistuimen toimivalta, Rikosoikeuden soveltamisala – Suomen rikosoikeuden alueellinen ulottuvuus</p>
+      
+      <div class="tags">
+        <span class="tag new">uusi</span>
+        
+        
+        <span class="tag">toimivalta</span>
+      </div>
+    </article>
+    
+  </section>
+
+  <section class="daygroup">
+    <h2>20. elokuuta 2026</h2>
+    
+    <article class=""
+             data-court="TT"
+             data-topics="sopimus ja vahingonkorvaus"
+             data-text="tt 2026:31 palkkaus – tehtäväkohtainen palkka – vaativuuden arviointi – virka- ja työehtosopimuksen tulkinta – välituomio ">
+      <span class="court">TT</span>
+      <div><a class="t" href="https://www.tyotuomioistuin.fi/ratkaisut/ratkaisujen-arkisto/tt-202631/" target="_blank" rel="noopener">TT 2026:31</a></div>
+      <p class="kw">Palkkaus – Tehtäväkohtainen palkka – Vaativuuden arviointi – Virka- ja työehtosopimuksen tulkinta – Välituomio</p>
+      
+      <div class="tags">
+        <span class="tag new">uusi</span>
+        
+        <span class="tag topic">Sopimus ja vahingonkorvaus</span>
+        <span class="tag">sopimuksen tulkin</span>
+      </div>
+    </article>
+    
+  </section>
+
+
+<p class="empty" id="noresults" hidden>Rajaukset eivät jätä yhtään ratkaisua näkyviin.</p>
+</main>
+
+<footer>
+  <p>Lähteet: Korkeimman oikeuden ennakkopäätökset, Hovioikeuksien ratkaisut, Markkinaoikeuden ratkaisut, Työtuomioistuimen ratkaisut, Vakuutusoikeuden ratkaisut, Tuomioistuinlaitos, Unionin tuomioistuin (EUT ja unionin yleinen tuomioistuin), Unionin tuomioistuimen lehdistötiedotteet, Edilex, uutiset, Suomen Asianajajaliitto.</p>
+  <p>Seuranta on apuväline, ei oikeudellista neuvontaa. Suodatus perustuu
+  avainsanoihin, joten se päästää läpi myös epäolennaista ja voi pudottaa
+  olennaista. Tarkista ratkaisu aina alkuperäisestä lähteestä ennen kuin
+  nojaat siihen.</p>
+</footer>
+</div>
+
+<script>
+const q = document.getElementById('q');
+const chips = [...document.querySelectorAll('.chip[data-court], .chip[data-topic]')];
+const cards = [...document.querySelectorAll('article')];
+const counter = document.getElementById('count');
+const none = document.getElementById('noresults');
+
+function apply() {
+  const term = q.value.trim().toLowerCase();
+  const on = chips.filter(c => c.getAttribute('aria-pressed') === 'true');
+  const courts = on.filter(c => c.dataset.court).map(c => c.dataset.court);
+  const topics = on.filter(c => c.dataset.topic).map(c => c.dataset.topic);
+
+  let shown = 0;
+  cards.forEach(a => {
+    const okCourt = !courts.length || courts.includes(a.dataset.court);
+    const cardTopics = (a.dataset.topics || '').split('|').filter(Boolean);
+    const okTopic = !topics.length || topics.some(t => cardTopics.includes(t));
+    const okTerm = !term || a.dataset.text.includes(term);
+    const visible = okCourt && okTopic && okTerm;
+    a.hidden = !visible;
+    if (visible) shown++;
+  });
+
+  document.querySelectorAll('.daygroup').forEach(s => {
+    s.hidden = ![...s.querySelectorAll('article')].some(a => !a.hidden);
+  });
+
+  counter.textContent = shown + ' ratkaisua näkyvissä';
+  none.hidden = shown !== 0;
+}
+
+q.addEventListener('input', apply);
+chips.forEach(c => c.addEventListener('click', () => {
+  c.setAttribute('aria-pressed', c.getAttribute('aria-pressed') === 'true' ? 'false' : 'true');
+  apply();
+}));
+document.getElementById('reset').addEventListener('click', () => {
+  q.value = '';
+  chips.forEach(c => c.setAttribute('aria-pressed', 'false'));
+  apply();
+  q.focus();
+});
+</script>
+</body>
+</html>

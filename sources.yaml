@@ -1,0 +1,281 @@
+# Dispute Resolution -oikeustapausseurannan lähteet ja suodatussäännöt.
+# Pohjana tietosuojafeedin (oikeusfeed) arkkitehtuuri. Koodi on sama,
+# vain tämä tiedosto on riidanratkaisulle oma.
+#
+# Avainsanarajaus on tässä se vaikein kohta: lähes jokainen siviilijuttu
+# on jonkinlainen riita, joten must_any pitää kalibroida huolella eikä
+# päästää läpi kaikkea. Säädä --dry-run:lla ennen julkaisua.
+
+settings:
+  window_days: 120
+  max_items: 200
+  site_title: "Dispute Resolution Newsfeed"
+  site_subtitle: "Riidanratkaisu: oikeuskäytäntö, välimiesmenettely ja prosessi"
+  timezone: "Europe/Helsinki"
+
+# must_any: ainakin yhden näistä pitää osua otsikkoon, asiasanoihin tai
+#           tiivistelmään. Portti.
+# boost:    nostaa jutun "tärkeä"-luokkaan.
+# never:    pudottaa jutun pois, vaikka must_any osuisi (vain otsikko+asiasanat).
+keywords:
+  must_any:
+    # --- prosessi ja todistelu ---
+    - oikeudenkäyn
+    - oikeudenkäyntikul
+    - oikeudenkäyntiväit
+    - todistel
+    - todistustaak
+    - näyttötaak
+    - prosessinjoht
+    - tutkimatta jättäm
+    - oikeusvoim
+    - vireilläolo
+    - lainvoim
+    - tuomion purk
+    - ylimääräinen muutoksenhaku
+    # --- välimiesmenettely ---
+    - välimies
+    - välitystuomio
+    - välityssopimus
+    - välityslauseke
+    # --- sopimus, vahingonkorvaus, kauppa ---
+    - sopimusrikkomus
+    - sopimussakko
+    - sopimuksen tulkin
+    - vahingonkorvaus
+    - viivästyskorko
+    - vanhentumin
+    - reklamaatio
+    - kauppalak
+    - irtaimen kaup
+    - liikesalaisuu
+    - takaisinsaan
+    - perusteeton etu
+    - sovinto
+    - tuomioistuinsovittelu
+    # --- täytäntöönpano, turvaamistoimet, rajat ylittävä ---
+    - täytäntöönpano
+    - turvaamistoim
+    - tuomion tunnustamin
+    - toimivalta
+    - oikeuspaik
+    - ryhmäkanne
+  boost:
+    - välimies
+    - välitystuomio
+    - oikeudenkäyntikul
+    - oikeusvoim
+    - turvaamistoim
+    - tuomion purk
+    - ryhmäkanne
+    - ennakkopäätös
+    - liikesalaisuu
+  never:
+    - avoin työpaikka
+    - rekrytointi
+    - vuosikertomus
+    - toimintakertomus
+    - nimitysuutis
+    - save the date
+    - stakeholder event
+    - webinaari
+    - käyttökatko
+    - huoltokatko
+    - podcast
+    # --- aihekohtaiset poissulut: karsivat ratkaisut, jotka tulevat läpi
+    #     yleisen prosessitermin (esim. oikeudenkäyntikulut, vanhentuminen)
+    #     takia mutta eivät kuulu kaupalliselle DR-tiimille. Nämä katsotaan
+    #     vain otsikosta ja asiasanoista. Poista rivi, jos haluat alueen
+    #     takaisin (esim. "julkinen hankinta" jos hankintariidat kiinnostavat).
+    - julkinen hankinta
+    - säilöönotto
+    - sotilasoikeudenkäyn
+    - rikosasioissa
+    - syyteoikeu
+    - holhoustoimi
+    - edunvalvo
+    - perintökaari
+    - ennakkoperintö
+    - lastensuojelu
+    - huostaanotto
+
+# Aiheluokat sivun suodatusnappeihin. Juttu saa kaikki ne luokat, joiden
+# termeistä vähintään yksi osuu. Vertailu on osajonohaku pienillä kirjaimilla,
+# joten listassa on katkaistuja sanavartaloita (esim. "vanhentumin").
+topics:
+  Prosessi ja todistelu:
+    - oikeudenkäyn
+    - oikeudenkäyntikul
+    - oikeudenkäyntiväit
+    - todistel
+    - todistustaak
+    - näyttötaak
+    - prosessinjoht
+    - tutkimatta
+    - oikeusvoim
+    - vireilläolo
+    - lainvoim
+  Välimiesmenettely:
+    - välimies
+    - välitystuomio
+    - välityssopimus
+    - välityslauseke
+  Sopimus ja vahingonkorvaus:
+    - sopimusrikkomus
+    - sopimussakko
+    - sopimuksen tulkin
+    - vahingonkorvaus
+    - viivästyskorko
+    - vanhentumin
+    - reklamaatio
+    - kauppalak
+    - perusteeton etu
+    - liikesalaisuu
+  Täytäntöönpano ja turvaamistoimet:
+    - täytäntöönpano
+    - turvaamistoim
+    - ulosotto
+    - takaisinsaan
+    - tunnustamin
+  Rajat ylittävät riidat:
+    - bryssel
+    - oikeuspaik
+    - kansainvälinen toimivalta
+    - rooma i
+    - rooma ii
+    - "1215/2012"
+    - "593/2008"
+    - "864/2007"
+
+sources:
+  # ===================================================================
+  # Kansallinen oikeuskäytäntö
+  # ===================================================================
+  # Luetaan tuomioistuimet.fi:n ratkaisusivuilta (court_rulings). Kortilla on
+  # tuomioistuimen oma asiasanaluettelo, joka osuu suodatukseen tarkemmin kuin
+  # pelkkä otsikko. Käräjäoikeudet eivät ole tällä listalla, ne tulevat vain
+  # tiedotteina ajankohtaissyötteestä.
+  - id: kko-ratkaisut
+    name: "Korkeimman oikeuden ennakkopäätökset"
+    type: court_rulings
+    court: "KKO"
+    weight: 3
+    url: "https://www.tuomioistuimet.fi/tuomioistuinten-ratkaisut/korkeimman-oikeuden-ennakkopaatokset/"
+
+  - id: hovi-ratkaisut
+    name: "Hovioikeuksien ratkaisut"
+    type: court_rulings
+    court: "Hovioikeus"
+    weight: 2
+    url: "https://www.tuomioistuimet.fi/tuomioistuinten-ratkaisut/hovioikeuksien-ratkaisut/"
+
+  - id: mao-ratkaisut
+    name: "Markkinaoikeuden ratkaisut"
+    type: court_rulings
+    court: "MAO"
+    weight: 2
+    url: "https://www.tuomioistuimet.fi/tuomioistuinten-ratkaisut/markkinaoikeuden-ratkaisut/"
+
+  - id: tt-ratkaisut
+    name: "Työtuomioistuimen ratkaisut"
+    type: court_rulings
+    court: "TT"
+    weight: 1
+    url: "https://www.tuomioistuimet.fi/tuomioistuinten-ratkaisut/tyotuomioistuimen-ratkaisut/"
+
+  - id: vako-ratkaisut
+    name: "Vakuutusoikeuden ratkaisut"
+    type: court_rulings
+    court: "VakO"
+    weight: 1
+    url: "https://www.tuomioistuimet.fi/tuomioistuinten-ratkaisut/vakuutusoikeuden-ratkaisut/"
+
+  # Tuomioistuinlaitoksen yhteinen ajankohtaissyöte. Tuo mukaan myös
+  # käräjäoikeuksien tiedotteet. court_patterns lukee otsikosta oikean
+  # oikeusasteen "Tuomioistuimet"-yleisnimen sijaan.
+  - id: tuomioistuimet
+    name: "Tuomioistuinlaitos"
+    type: plain_rss
+    court: "Tuomioistuimet"
+    weight: 2
+    url: "https://www.tuomioistuimet.fi/feed/rss-feed?post_type=ajankohtaiset"
+    court_patterns:
+      - match: ["korkei", "hallinto-oikeu"]
+        label: "KHO"
+      - match: ["korkei", "oikeu"]
+        label: "KKO"
+      - match: ["hovioikeu"]
+        label: "Hovioikeus"
+      - match: ["hallinto-oikeu"]
+        label: "Hallinto-oikeus"
+      - match: ["käräjäoikeu"]
+        label: "Käräjäoikeus"
+
+  # ===================================================================
+  # EU-tuomioistuin
+  # ===================================================================
+  # eu_sparql hakee KAIKKI unionin tuomioistuimen ratkaisut, joten
+  # require_any on pakollinen lisäportti. Rajaus on rajat ylittävän
+  # riidanratkaisun termeihin: toimivalta, tuomioiden tunnustaminen ja
+  # täytäntöönpano (Bryssel Ia), sovellettava laki (Rooma I/II),
+  # välimiesmenettely, tiedoksianto ja todisteiden vastaanottaminen.
+  - id: eu-courts
+    name: "Unionin tuomioistuin (EUT ja unionin yleinen tuomioistuin)"
+    type: eu_sparql
+    court: "EUT"
+    weight: 3
+    celex_types: ["CJ", "TJ", "CC"]
+    language: "fin"
+    lookback_days: 150
+    require_any:
+      - välimies
+      - välitystuomio
+      - bryssel
+      - "1215/2012"
+      - "44/2001"
+      - oikeuspaikka
+      - oikeuspaikkasopimus
+      - tuomioistuimen toimivalta
+      - tuomioiden tunnustamin
+      - tuomion tunnustamin
+      - täytäntöönpanokelpoi
+      - rooma i
+      - rooma ii
+      - "593/2008"
+      - "864/2007"
+      - sopimukseen perustumaton
+      - sopimusvelvoit
+      - asiakirjojen tiedoksianto
+      - todisteiden vastaanottamin
+
+  - id: curia-press
+    name: "Unionin tuomioistuimen lehdistötiedotteet"
+    type: plain_rss
+    court: "EUT"
+    weight: 1
+    optional: true
+    url: "https://curia.europa.eu/site/rss.jsp?lang=en&secondLang=fr"
+
+  # ===================================================================
+  # Muut uutiset ja järjestöt
+  # ===================================================================
+  # Edilex uutisoi uudet ratkaisut samana päivänä, toimii varmistuksena.
+  # Otsikon edessä on kellonaika muodossa "18.9.2026 16.00", joka siivotaan.
+  - id: edilex
+    name: "Edilex, uutiset"
+    type: html_list
+    court: "Edilex"
+    weight: 2
+    optional: true
+    browser: true
+    url: "https://www.edilex.fi/uutiset"
+    link_pattern: "edilex\\.fi/uutiset/\\d+"
+    strip_title_prefix: "^\\d{1,2}\\.\\d{1,2}\\.\\d{4}\\s+\\d{1,2}\\.\\d{2}\\s*"
+
+  - id: asianajajat
+    name: "Suomen Asianajajaliitto"
+    type: plain_rss
+    court: "Asianajajaliitto"
+    weight: 1
+    optional: true
+    url: "https://asianajajat.fi/feed/"

@@ -1,0 +1,334 @@
+{
+  "generated": "2026-11-11T09:01:32",
+  "window_days": 120,
+  "sources": [
+    {
+      "id": "kko-ratkaisut",
+      "name": "Korkeimman oikeuden ennakkopäätökset",
+      "court": "KKO",
+      "ok": true,
+      "fetched": 15,
+      "error": ""
+    },
+    {
+      "id": "hovi-ratkaisut",
+      "name": "Hovioikeuksien ratkaisut",
+      "court": "Hovioikeus",
+      "ok": true,
+      "fetched": 100,
+      "error": ""
+    },
+    {
+      "id": "mao-ratkaisut",
+      "name": "Markkinaoikeuden ratkaisut",
+      "court": "MAO",
+      "ok": true,
+      "fetched": 30,
+      "error": ""
+    },
+    {
+      "id": "tt-ratkaisut",
+      "name": "Työtuomioistuimen ratkaisut",
+      "court": "TT",
+      "ok": true,
+      "fetched": 15,
+      "error": ""
+    },
+    {
+      "id": "vako-ratkaisut",
+      "name": "Vakuutusoikeuden ratkaisut",
+      "court": "VakO",
+      "ok": true,
+      "fetched": 15,
+      "error": ""
+    },
+    {
+      "id": "tuomioistuimet",
+      "name": "Tuomioistuinlaitos",
+      "court": "Tuomioistuimet",
+      "ok": true,
+      "fetched": 29,
+      "error": ""
+    },
+    {
+      "id": "eu-courts",
+      "name": "Unionin tuomioistuin (EUT ja unionin yleinen tuomioistuin)",
+      "court": "EUT",
+      "ok": true,
+      "fetched": 7,
+      "error": ""
+    },
+    {
+      "id": "curia-press",
+      "name": "Unionin tuomioistuimen lehdistötiedotteet",
+      "court": "EUT",
+      "ok": true,
+      "fetched": 10,
+      "error": ""
+    },
+    {
+      "id": "edilex",
+      "name": "Edilex, uutiset",
+      "court": "Edilex",
+      "ok": true,
+      "fetched": 74,
+      "error": ""
+    },
+    {
+      "id": "asianajajat",
+      "name": "Suomen Asianajajaliitto",
+      "court": "Asianajajaliitto",
+      "ok": true,
+      "fetched": 10,
+      "error": ""
+    }
+  ],
+  "items": [
+    {
+      "court": "Edilex",
+      "source": "Edilex, uutiset",
+      "title": "Hovioikeus alensi yhtiön oman juristin työstä vaadittuja oikeudenkäyntikuluja merkittävästi",
+      "url": "https://www.edilex.fi/uutiset/103798",
+      "date": "2026-11-10",
+      "keywords": "",
+      "summary": "",
+      "score": 38,
+      "topics": [
+        "Prosessi ja todistelu"
+      ],
+      "tags": [
+        "tärkeä",
+        "oikeudenkäyn",
+        "oikeudenkäyntikul"
+      ]
+    },
+    {
+      "court": "Edilex",
+      "source": "Edilex, uutiset",
+      "title": "Lakikirjastossa julkaistua: Todistelutallenneuudistuksen viittausmenettely hovioikeudessa",
+      "url": "https://www.edilex.fi/uutiset/103811",
+      "date": "2026-11-10",
+      "keywords": "",
+      "summary": "",
+      "score": 23,
+      "topics": [
+        "Prosessi ja todistelu"
+      ],
+      "tags": [
+        "todistel"
+      ]
+    },
+    {
+      "court": "Edilex",
+      "source": "Edilex, uutiset",
+      "title": "Vierashuoneessa  OTK, väitöskirjatutkija Janne Ripatti: CAS:n Venäjä-ratkaisu – lajiliittojen säännöt ja turvallisuustoimivallan rajat Avoin Urheilun kansainvälinen välitystuomioistuin CAS kumosi 30.1",
+      "url": "https://www.edilex.fi/uutiset/103736",
+      "date": "2026-11-05",
+      "keywords": "",
+      "summary": "",
+      "score": 35,
+      "topics": [
+        "Välimiesmenettely"
+      ],
+      "tags": [
+        "tärkeä",
+        "välitystuomio"
+      ]
+    },
+    {
+      "court": "Edilex",
+      "source": "Edilex, uutiset",
+      "title": "Hovioikeus: Takaisinsaannin jälkeen tehty sovinto oikeutti kuluttajan osittaiseen kulukorvaukseen",
+      "url": "https://www.edilex.fi/uutiset/103738",
+      "date": "2026-11-05",
+      "keywords": "",
+      "summary": "",
+      "score": 26,
+      "topics": [
+        "Täytäntöönpano ja turvaamistoimet"
+      ],
+      "tags": [
+        "takaisinsaan",
+        "sovinto"
+      ]
+    },
+    {
+      "court": "Hovioikeus",
+      "source": "Hovioikeuksien ratkaisut",
+      "title": "THO:2026:2",
+      "url": "https://www.tuomioistuimet.fi/ratkaisut/tho20262/",
+      "date": "2026-10-27",
+      "keywords": "Ylimääräinen muutoksenhaku – Kantelu, Oikeudenmukainen oikeudenkäynti",
+      "summary": "",
+      "score": 26,
+      "topics": [
+        "Prosessi ja todistelu"
+      ],
+      "tags": [
+        "oikeudenkäyn",
+        "ylimääräinen muutoksenhaku"
+      ]
+    },
+    {
+      "court": "Asianajajaliitto",
+      "source": "Suomen Asianajajaliitto",
+      "title": "Lausunto ihmiskaupan vastaisesta toiminnasta tehdyn Euroopan neuvoston yleissopimuksen täytäntöönpanon neljännestä valvontakierroksesta",
+      "url": "https://asianajajat.fi/2026/10/14/lausunto-euroopan-neuvostolle-ihmiskaupan-vastaisesta-toiminnasta-tehdyn-yleissopimuksen-taytantoonpanon-neljannesta-valvontakierroksesta/",
+      "date": "2026-10-14",
+      "keywords": "",
+      "summary": "Artikkeli  julkaistiin ensimmäisen kerran Suomen Asianajajat .",
+      "score": 13,
+      "topics": [
+        "Täytäntöönpano ja turvaamistoimet"
+      ],
+      "tags": [
+        "täytäntöönpano"
+      ]
+    },
+    {
+      "court": "MAO",
+      "source": "Markkinaoikeuden ratkaisut",
+      "title": "MAO:482/2026",
+      "url": "https://www.markkinaoikeus.fi/ratkaisut/ratkaisujen-arkisto/mao482-2026/",
+      "date": "2026-10-06",
+      "keywords": "turvaamistoimi – välliaikainen kielto – sopimaton menettely elinkeinotoiminnassa",
+      "summary": "",
+      "score": 35,
+      "topics": [
+        "Täytäntöönpano ja turvaamistoimet"
+      ],
+      "tags": [
+        "tärkeä",
+        "turvaamistoim"
+      ]
+    },
+    {
+      "court": "EUT",
+      "source": "Unionin tuomioistuin (EUT ja unionin yleinen tuomioistuin)",
+      "title": "C-459/25, tuomio",
+      "url": "https://eur-lex.europa.eu/legal-content/FI/TXT/?uri=CELEX:62025CJ0459",
+      "date": "2026-10-01",
+      "keywords": "Ennakkoratkaisupyyntö – Kuluttajansuoja – Direktiivi 93/13/ETY – 6 artiklan 1 kohta ja 7 artiklan 1 kohta – Kuluttajasopimusten kohtuuttomat ehdot – Vuokrasopimus – Ehto, jonka mukaan vuokralainen vastaa kaikista tuomioistuinmenettelystä aiheutuvista kuluista, jos hän ei täytä sopimusvelvoitteitaan – Kyseisen ehdon kohtuuttomaksi toteamisen vaikutukset – Kansallisen oikeuden dispositiivisten säännösten soveltaminen – Oikeudenkäyntikulujen jakaminen ja vahvistaminen tuomioistuinmenettelyssä – Jäsenvaltioiden menettelyllinen autonomia – Tehokkuusperiaate",
+      "summary": "ECLI:EU:C:2026:810",
+      "score": 48,
+      "topics": [
+        "Prosessi ja todistelu"
+      ],
+      "tags": [
+        "tärkeä",
+        "oikeudenkäyn",
+        "oikeudenkäyntikul"
+      ]
+    },
+    {
+      "court": "KKO",
+      "source": "Korkeimman oikeuden ennakkopäätökset",
+      "title": "KKO:2026:72",
+      "url": "https://www.korkeinoikeus.fi/ennakkopaatokset/ennakkopaatokset-vuosittain/kko202672/",
+      "date": "2026-09-29",
+      "keywords": "Oikeusapu, Asiantuntija – Asianosaisen käyttämä asiantuntija, Todistelukustannukset",
+      "summary": "",
+      "score": 33,
+      "topics": [
+        "Prosessi ja todistelu"
+      ],
+      "tags": [
+        "todistel"
+      ]
+    },
+    {
+      "court": "KKO",
+      "source": "Korkeimman oikeuden ennakkopäätökset",
+      "title": "KKO:2026:71",
+      "url": "https://www.korkeinoikeus.fi/ennakkopaatokset/ennakkopaatokset-vuosittain/kko202671/",
+      "date": "2026-09-28",
+      "keywords": "Syyte – Syytteen peruuttaminen, Muutoksenhaku – Muutoksenhakuoikeus, Oikeudenkäyntimenettely – Tyytymättömyyden ilmoittaminen",
+      "summary": "",
+      "score": 33,
+      "topics": [
+        "Prosessi ja todistelu"
+      ],
+      "tags": [
+        "oikeudenkäyn"
+      ]
+    },
+    {
+      "court": "TT",
+      "source": "Työtuomioistuimen ratkaisut",
+      "title": "TT 2026:33",
+      "url": "https://www.tyotuomioistuin.fi/ratkaisut/ratkaisujen-arkisto/tt-202633/",
+      "date": "2026-09-28",
+      "keywords": "Keskituntiansio – Palkkasaatavat – Työehtosopimuksen pakottavuus – Vanhentuminen",
+      "summary": "",
+      "score": 13,
+      "topics": [
+        "Sopimus ja vahingonkorvaus"
+      ],
+      "tags": [
+        "vanhentumin"
+      ]
+    },
+    {
+      "court": "TT",
+      "source": "Työtuomioistuimen ratkaisut",
+      "title": "TT 2026:32",
+      "url": "https://www.tyotuomioistuin.fi/ratkaisut/ratkaisujen-arkisto/1413/",
+      "date": "2026-09-17",
+      "keywords": "Lausuntoasia – Palkkaryhmittely – Työehtosopimuksen tulkinta",
+      "summary": "",
+      "score": 13,
+      "topics": [
+        "Sopimus ja vahingonkorvaus"
+      ],
+      "tags": [
+        "sopimuksen tulkin"
+      ]
+    },
+    {
+      "court": "Hovioikeus",
+      "source": "Hovioikeuksien ratkaisut",
+      "title": "HelHO:2026:8",
+      "url": "https://www.tuomioistuimet.fi/ratkaisut/helho20268/",
+      "date": "2026-09-07",
+      "keywords": "Oikeudenkäynnin julkisuus – Tietopyyntö, Tietosuoja, Väliintulo",
+      "summary": "",
+      "score": 23,
+      "topics": [
+        "Prosessi ja todistelu"
+      ],
+      "tags": [
+        "oikeudenkäyn"
+      ]
+    },
+    {
+      "court": "Hovioikeus",
+      "source": "Hovioikeuksien ratkaisut",
+      "title": "HelHO:2026:9",
+      "url": "https://www.tuomioistuimet.fi/ratkaisut/helho20269/",
+      "date": "2026-08-27",
+      "keywords": "Kansainvälinen prosessioikeus – Yhdistyneiden Kansakuntien merioikeusyleissopimus, Tuomioistuimen toimivalta, Rikosoikeuden soveltamisala – Suomen rikosoikeuden alueellinen ulottuvuus",
+      "summary": "",
+      "score": 23,
+      "topics": [],
+      "tags": [
+        "toimivalta"
+      ]
+    },
+    {
+      "court": "TT",
+      "source": "Työtuomioistuimen ratkaisut",
+      "title": "TT 2026:31",
+      "url": "https://www.tyotuomioistuin.fi/ratkaisut/ratkaisujen-arkisto/tt-202631/",
+      "date": "2026-08-20",
+      "keywords": "Palkkaus – Tehtäväkohtainen palkka – Vaativuuden arviointi – Virka- ja työehtosopimuksen tulkinta – Välituomio",
+      "summary": "",
+      "score": 13,
+      "topics": [
+        "Sopimus ja vahingonkorvaus"
+      ],
+      "tags": [
+        "sopimuksen tulkin"
+      ]
+    }
+  ]
+}
