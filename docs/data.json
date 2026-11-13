@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-11T09:01:32",
+  "generated": "2026-11-13T11:42:47",
   "window_days": 120,
   "sources": [
     {
@@ -47,7 +47,7 @@
       "name": "Tuomioistuinlaitos",
       "court": "Tuomioistuimet",
       "ok": true,
-      "fetched": 29,
+      "fetched": 30,
       "error": ""
     },
     {
@@ -71,7 +71,7 @@
       "name": "Edilex, uutiset",
       "court": "Edilex",
       "ok": true,
-      "fetched": 74,
+      "fetched": 82,
       "error": ""
     },
     {
@@ -87,7 +87,59 @@
     {
       "court": "Edilex",
       "source": "Edilex, uutiset",
-      "title": "Hovioikeus alensi yhtiön oman juristin työstä vaadittuja oikeudenkäyntikuluja merkittävästi",
+      "title": "Lentomatkustajien vaatimusten perimiseen erikoistuneen yrityksen samaan konserniin kuuluneen asianajajan palkkio hyväksyttiin oikeudenkäyntikuluna, mutta tuntiveloitus alennetiin 200 euroon Käräjäoike",
+      "url": "https://www.edilex.fi/uutiset/103865",
+      "date": "2026-11-13",
+      "keywords": "",
+      "summary": "",
+      "score": 38,
+      "topics": [
+        "Prosessi ja todistelu"
+      ],
+      "tags": [
+        "tärkeä",
+        "oikeudenkäyn",
+        "oikeudenkäyntikul"
+      ]
+    },
+    {
+      "court": "Edilex",
+      "source": "Edilex, uutiset",
+      "title": "Hovioikeus: Kanteensa peruuttanut luotonantaja velvoitettiin korvaamaan vastapuolen oikeudenkäyntikulut sovinnon jälkeen",
+      "url": "https://www.edilex.fi/uutiset/103839",
+      "date": "2026-11-12",
+      "keywords": "",
+      "summary": "",
+      "score": 38,
+      "topics": [
+        "Prosessi ja todistelu"
+      ],
+      "tags": [
+        "tärkeä",
+        "oikeudenkäyn",
+        "oikeudenkäyntikul"
+      ]
+    },
+    {
+      "court": "Edilex",
+      "source": "Edilex, uutiset",
+      "title": "Työnantaja sai vedota oikeudenkäynnissä työntekijän väkivaltaiseen käytökseen, vaikka irtisanominen oli tehty tuotannollisilla ja taloudellisilla perusteilla",
+      "url": "https://www.edilex.fi/uutiset/103840",
+      "date": "2026-11-12",
+      "keywords": "",
+      "summary": "",
+      "score": 23,
+      "topics": [
+        "Prosessi ja todistelu"
+      ],
+      "tags": [
+        "oikeudenkäyn"
+      ]
+    },
+    {
+      "court": "Edilex",
+      "source": "Edilex, uutiset",
+      "title": "Hovioikeus alensi yhtiön oman juristin työstä vaadittuja oikeudenkäyntikuluja merkittävästi Hovioikeus katsoi, että oikeushenkilön palveluksessa olevan juristin oikeudenkäyntityöstä aiheutuvat kulut o",
       "url": "https://www.edilex.fi/uutiset/103798",
       "date": "2026-11-10",
       "keywords": "",
@@ -116,40 +168,6 @@
       ],
       "tags": [
         "todistel"
-      ]
-    },
-    {
-      "court": "Edilex",
-      "source": "Edilex, uutiset",
-      "title": "Vierashuoneessa  OTK, väitöskirjatutkija Janne Ripatti: CAS:n Venäjä-ratkaisu – lajiliittojen säännöt ja turvallisuustoimivallan rajat Avoin Urheilun kansainvälinen välitystuomioistuin CAS kumosi 30.1",
-      "url": "https://www.edilex.fi/uutiset/103736",
-      "date": "2026-11-05",
-      "keywords": "",
-      "summary": "",
-      "score": 35,
-      "topics": [
-        "Välimiesmenettely"
-      ],
-      "tags": [
-        "tärkeä",
-        "välitystuomio"
-      ]
-    },
-    {
-      "court": "Edilex",
-      "source": "Edilex, uutiset",
-      "title": "Hovioikeus: Takaisinsaannin jälkeen tehty sovinto oikeutti kuluttajan osittaiseen kulukorvaukseen",
-      "url": "https://www.edilex.fi/uutiset/103738",
-      "date": "2026-11-05",
-      "keywords": "",
-      "summary": "",
-      "score": 26,
-      "topics": [
-        "Täytäntöönpano ja turvaamistoimet"
-      ],
-      "tags": [
-        "takaisinsaan",
-        "sovinto"
       ]
     },
     {
