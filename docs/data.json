@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-13T11:42:47",
+  "generated": "2026-11-14T12:04:35",
   "window_days": 120,
   "sources": [
     {
@@ -71,7 +71,7 @@
       "name": "Edilex, uutiset",
       "court": "Edilex",
       "ok": true,
-      "fetched": 82,
+      "fetched": 81,
       "error": ""
     },
     {
@@ -87,7 +87,7 @@
     {
       "court": "Edilex",
       "source": "Edilex, uutiset",
-      "title": "Lentomatkustajien vaatimusten perimiseen erikoistuneen yrityksen samaan konserniin kuuluneen asianajajan palkkio hyväksyttiin oikeudenkäyntikuluna, mutta tuntiveloitus alennetiin 200 euroon Käräjäoike",
+      "title": "Lentomatkustajien vaatimusten perimiseen erikoistuneen yrityksen samaan konserniin kuuluneen asianajajan palkkio hyväksyttiin oikeudenkäyntikuluna, mutta tuntiveloitus alennetiin 200 euroon",
       "url": "https://www.edilex.fi/uutiset/103865",
       "date": "2026-11-13",
       "keywords": "",
@@ -168,6 +168,22 @@
       ],
       "tags": [
         "todistel"
+      ]
+    },
+    {
+      "court": "Hovioikeus",
+      "source": "Hovioikeuksien ratkaisut",
+      "title": "THO:2026:4",
+      "url": "https://www.tuomioistuimet.fi/ratkaisut/tho20264/",
+      "date": "2026-10-30",
+      "keywords": "Konkurssi – Konkurssin edellytykset – Verosaatava – Täytäntöönpanon rajoitettu keskeyttäminen",
+      "summary": "",
+      "score": 23,
+      "topics": [
+        "Täytäntöönpano ja turvaamistoimet"
+      ],
+      "tags": [
+        "täytäntöönpano"
       ]
     },
     {
