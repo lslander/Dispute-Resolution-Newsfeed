@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-15T12:40:11",
+  "generated": "2026-11-16T13:32:26",
   "window_days": 120,
   "sources": [
     {
@@ -71,7 +71,7 @@
       "name": "Edilex, uutiset",
       "court": "Edilex",
       "ok": true,
-      "fetched": 81,
+      "fetched": 80,
       "error": ""
     },
     {
@@ -84,6 +84,24 @@
     }
   ],
   "items": [
+    {
+      "court": "Edilex",
+      "source": "Edilex, uutiset",
+      "title": "Lapsen tosiasiallinen asuinpaikka ratkaisi oikeuspaikan arvioinnin – hovioikeus kumosi päätöksen tutkimatta jättämisestä Hovioikeus katsoi, että lapsiasian oikeuspaikkaa oli arvioitava lasten tosiasia",
+      "url": "https://www.edilex.fi/uutiset/103889",
+      "date": "2026-11-16",
+      "keywords": "",
+      "summary": "",
+      "score": 26,
+      "topics": [
+        "Prosessi ja todistelu",
+        "Rajat ylittävät riidat"
+      ],
+      "tags": [
+        "tutkimatta jättäm",
+        "oikeuspaik"
+      ]
+    },
     {
       "court": "Edilex",
       "source": "Edilex, uutiset",
@@ -332,6 +350,22 @@
       ],
       "tags": [
         "oikeudenkäyn"
+      ]
+    },
+    {
+      "court": "Hovioikeus",
+      "source": "Hovioikeuksien ratkaisut",
+      "title": "VaaHO:2026:5",
+      "url": "https://www.tuomioistuimet.fi/ratkaisut/vaaho20265/",
+      "date": "2026-08-27",
+      "keywords": "Seksuaalirikos, Raiskaus, Todistelu, Näytön arviointi",
+      "summary": "",
+      "score": 23,
+      "topics": [
+        "Prosessi ja todistelu"
+      ],
+      "tags": [
+        "todistel"
       ]
     },
     {
