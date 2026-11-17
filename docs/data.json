@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-16T13:32:26",
+  "generated": "2026-11-17T14:17:28",
   "window_days": 120,
   "sources": [
     {
@@ -54,9 +54,9 @@
       "id": "eu-courts",
       "name": "Unionin tuomioistuin (EUT ja unionin yleinen tuomioistuin)",
       "court": "EUT",
-      "ok": true,
-      "fetched": 7,
-      "error": ""
+      "ok": false,
+      "fetched": 0,
+      "error": "403 Client Error: Forbidden for url: https://publications.europa.eu/webapi/rdf/sparql?query=%0APREFIX+cdm%3A+%3Chttp%3A%2F%2Fpublications.europa.eu%2Fontology%2Fcdm%23%3E%0APREFIX+lang%3A+%3Chttp%3A%2"
     },
     {
       "id": "curia-press",
@@ -71,7 +71,7 @@
       "name": "Edilex, uutiset",
       "court": "Edilex",
       "ok": true,
-      "fetched": 80,
+      "fetched": 81,
       "error": ""
     },
     {
@@ -87,7 +87,24 @@
     {
       "court": "Edilex",
       "source": "Edilex, uutiset",
-      "title": "Lapsen tosiasiallinen asuinpaikka ratkaisi oikeuspaikan arvioinnin – hovioikeus kumosi päätöksen tutkimatta jättämisestä Hovioikeus katsoi, että lapsiasian oikeuspaikkaa oli arvioitava lasten tosiasia",
+      "title": "Kuluttajariitalautakunta: Sopimussakkoa soviteltiin, kun vuokra-asunto muuttui putkiremontin vuoksi asumiskelvottomaksi Kun otettiin huomioon, että sopimusrikkomus koski vain noin kuukauden ajanjaksoa",
+      "url": "https://www.edilex.fi/uutiset/103916",
+      "date": "2026-11-17",
+      "keywords": "",
+      "summary": "",
+      "score": 26,
+      "topics": [
+        "Sopimus ja vahingonkorvaus"
+      ],
+      "tags": [
+        "sopimusrikkomus",
+        "sopimussakko"
+      ]
+    },
+    {
+      "court": "Edilex",
+      "source": "Edilex, uutiset",
+      "title": "Lapsen tosiasiallinen asuinpaikka ratkaisi oikeuspaikan arvioinnin – hovioikeus kumosi päätöksen tutkimatta jättämisestä",
       "url": "https://www.edilex.fi/uutiset/103889",
       "date": "2026-11-16",
       "keywords": "",
@@ -141,7 +158,7 @@
     {
       "court": "Edilex",
       "source": "Edilex, uutiset",
-      "title": "Työnantaja sai vedota oikeudenkäynnissä työntekijän väkivaltaiseen käytökseen, vaikka irtisanominen oli tehty tuotannollisilla ja taloudellisilla perusteilla",
+      "title": "Työnantaja sai vedota oikeudenkäynnissä työntekijän väkivaltaiseen käytökseen, vaikka irtisanominen oli tehty tuotannollisilla ja taloudellisilla perusteilla Hovioikeus ei myöntänyt jatkokäsittelylupa",
       "url": "https://www.edilex.fi/uutiset/103840",
       "date": "2026-11-12",
       "keywords": "",
@@ -175,7 +192,7 @@
     {
       "court": "Edilex",
       "source": "Edilex, uutiset",
-      "title": "Lakikirjastossa julkaistua: Todistelutallenneuudistuksen viittausmenettely hovioikeudessa",
+      "title": "Lakikirjastossa julkaistua: Todistelutallenneuudistuksen viittausmenettely hovioikeudessa Todistelutallenneuudistus tuli voimaan 1.10.2026 ja muutti hovioikeusmenettelyä siten, että käräjäoikeudessa a",
       "url": "https://www.edilex.fi/uutiset/103811",
       "date": "2026-11-10",
       "keywords": "",
@@ -252,24 +269,6 @@
       "tags": [
         "tärkeä",
         "turvaamistoim"
-      ]
-    },
-    {
-      "court": "EUT",
-      "source": "Unionin tuomioistuin (EUT ja unionin yleinen tuomioistuin)",
-      "title": "C-459/25, tuomio",
-      "url": "https://eur-lex.europa.eu/legal-content/FI/TXT/?uri=CELEX:62025CJ0459",
-      "date": "2026-10-01",
-      "keywords": "Ennakkoratkaisupyyntö – Kuluttajansuoja – Direktiivi 93/13/ETY – 6 artiklan 1 kohta ja 7 artiklan 1 kohta – Kuluttajasopimusten kohtuuttomat ehdot – Vuokrasopimus – Ehto, jonka mukaan vuokralainen vastaa kaikista tuomioistuinmenettelystä aiheutuvista kuluista, jos hän ei täytä sopimusvelvoitteitaan – Kyseisen ehdon kohtuuttomaksi toteamisen vaikutukset – Kansallisen oikeuden dispositiivisten säännösten soveltaminen – Oikeudenkäyntikulujen jakaminen ja vahvistaminen tuomioistuinmenettelyssä – Jäsenvaltioiden menettelyllinen autonomia – Tehokkuusperiaate",
-      "summary": "ECLI:EU:C:2026:810",
-      "score": 48,
-      "topics": [
-        "Prosessi ja todistelu"
-      ],
-      "tags": [
-        "tärkeä",
-        "oikeudenkäyn",
-        "oikeudenkäyntikul"
       ]
     },
     {
