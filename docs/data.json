@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-17T14:17:28",
+  "generated": "2026-11-18T13:50:22",
   "window_days": 120,
   "sources": [
     {
@@ -54,9 +54,9 @@
       "id": "eu-courts",
       "name": "Unionin tuomioistuin (EUT ja unionin yleinen tuomioistuin)",
       "court": "EUT",
-      "ok": false,
-      "fetched": 0,
-      "error": "403 Client Error: Forbidden for url: https://publications.europa.eu/webapi/rdf/sparql?query=%0APREFIX+cdm%3A+%3Chttp%3A%2F%2Fpublications.europa.eu%2Fontology%2Fcdm%23%3E%0APREFIX+lang%3A+%3Chttp%3A%2"
+      "ok": true,
+      "fetched": 7,
+      "error": ""
     },
     {
       "id": "curia-press",
@@ -71,7 +71,7 @@
       "name": "Edilex, uutiset",
       "court": "Edilex",
       "ok": true,
-      "fetched": 81,
+      "fetched": 77,
       "error": ""
     },
     {
@@ -87,17 +87,49 @@
     {
       "court": "Edilex",
       "source": "Edilex, uutiset",
-      "title": "Kuluttajariitalautakunta: Sopimussakkoa soviteltiin, kun vuokra-asunto muuttui putkiremontin vuoksi asumiskelvottomaksi Kun otettiin huomioon, että sopimusrikkomus koski vain noin kuukauden ajanjaksoa",
+      "title": "Hovioikeus kumosi ja palautti käräjäoikeuden tutkimattajättämispäätöksen: Takaisinsaantia yksipuoliseen tuomioon oli haettu määräajassa Asiassa oli kysymys siitä, oliko X Oy antanut Helsingin käräjäoi",
+      "url": "https://www.edilex.fi/uutiset/103919",
+      "date": "2026-11-18",
+      "keywords": "",
+      "summary": "",
+      "score": 23,
+      "topics": [
+        "Prosessi ja todistelu",
+        "Täytäntöönpano ja turvaamistoimet"
+      ],
+      "tags": [
+        "takaisinsaan"
+      ]
+    },
+    {
+      "court": "Edilex",
+      "source": "Edilex, uutiset",
+      "title": "Ajoneuvojen kiertotalousasetuksen täytäntöönpano on alkanut – tavoitteena edistää romuajoneuvojen osien uudelleenkäyttöä ja materiaalien kierrätystä",
+      "url": "https://www.edilex.fi/uutiset/103921",
+      "date": "2026-11-18",
+      "keywords": "",
+      "summary": "",
+      "score": 23,
+      "topics": [
+        "Täytäntöönpano ja turvaamistoimet"
+      ],
+      "tags": [
+        "täytäntöönpano"
+      ]
+    },
+    {
+      "court": "Edilex",
+      "source": "Edilex, uutiset",
+      "title": "Kuluttajariitalautakunta: Sopimussakkoa soviteltiin, kun vuokra-asunto muuttui putkiremontin vuoksi asumiskelvottomaksi",
       "url": "https://www.edilex.fi/uutiset/103916",
       "date": "2026-11-17",
       "keywords": "",
       "summary": "",
-      "score": 26,
+      "score": 23,
       "topics": [
         "Sopimus ja vahingonkorvaus"
       ],
       "tags": [
-        "sopimusrikkomus",
         "sopimussakko"
       ]
     },
@@ -172,40 +204,6 @@
       ]
     },
     {
-      "court": "Edilex",
-      "source": "Edilex, uutiset",
-      "title": "Hovioikeus alensi yhtiön oman juristin työstä vaadittuja oikeudenkäyntikuluja merkittävästi Hovioikeus katsoi, että oikeushenkilön palveluksessa olevan juristin oikeudenkäyntityöstä aiheutuvat kulut o",
-      "url": "https://www.edilex.fi/uutiset/103798",
-      "date": "2026-11-10",
-      "keywords": "",
-      "summary": "",
-      "score": 38,
-      "topics": [
-        "Prosessi ja todistelu"
-      ],
-      "tags": [
-        "tärkeä",
-        "oikeudenkäyn",
-        "oikeudenkäyntikul"
-      ]
-    },
-    {
-      "court": "Edilex",
-      "source": "Edilex, uutiset",
-      "title": "Lakikirjastossa julkaistua: Todistelutallenneuudistuksen viittausmenettely hovioikeudessa Todistelutallenneuudistus tuli voimaan 1.10.2026 ja muutti hovioikeusmenettelyä siten, että käräjäoikeudessa a",
-      "url": "https://www.edilex.fi/uutiset/103811",
-      "date": "2026-11-10",
-      "keywords": "",
-      "summary": "",
-      "score": 23,
-      "topics": [
-        "Prosessi ja todistelu"
-      ],
-      "tags": [
-        "todistel"
-      ]
-    },
-    {
       "court": "Hovioikeus",
       "source": "Hovioikeuksien ratkaisut",
       "title": "THO:2026:4",
@@ -269,6 +267,24 @@
       "tags": [
         "tärkeä",
         "turvaamistoim"
+      ]
+    },
+    {
+      "court": "EUT",
+      "source": "Unionin tuomioistuin (EUT ja unionin yleinen tuomioistuin)",
+      "title": "C-459/25, tuomio",
+      "url": "https://eur-lex.europa.eu/legal-content/FI/TXT/?uri=CELEX:62025CJ0459",
+      "date": "2026-10-01",
+      "keywords": "Ennakkoratkaisupyyntö – Kuluttajansuoja – Direktiivi 93/13/ETY – 6 artiklan 1 kohta ja 7 artiklan 1 kohta – Kuluttajasopimusten kohtuuttomat ehdot – Vuokrasopimus – Ehto, jonka mukaan vuokralainen vastaa kaikista tuomioistuinmenettelystä aiheutuvista kuluista, jos hän ei täytä sopimusvelvoitteitaan – Kyseisen ehdon kohtuuttomaksi toteamisen vaikutukset – Kansallisen oikeuden dispositiivisten säännösten soveltaminen – Oikeudenkäyntikulujen jakaminen ja vahvistaminen tuomioistuinmenettelyssä – Jäsenvaltioiden menettelyllinen autonomia – Tehokkuusperiaate",
+      "summary": "ECLI:EU:C:2026:810",
+      "score": 48,
+      "topics": [
+        "Prosessi ja todistelu"
+      ],
+      "tags": [
+        "tärkeä",
+        "oikeudenkäyn",
+        "oikeudenkäyntikul"
       ]
     },
     {
