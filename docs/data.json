@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-18T13:50:22",
+  "generated": "2026-11-19T14:19:53",
   "window_days": 120,
   "sources": [
     {
@@ -71,7 +71,7 @@
       "name": "Edilex, uutiset",
       "court": "Edilex",
       "ok": true,
-      "fetched": 77,
+      "fetched": 86,
       "error": ""
     },
     {
@@ -87,7 +87,7 @@
     {
       "court": "Edilex",
       "source": "Edilex, uutiset",
-      "title": "Hovioikeus kumosi ja palautti käräjäoikeuden tutkimattajättämispäätöksen: Takaisinsaantia yksipuoliseen tuomioon oli haettu määräajassa Asiassa oli kysymys siitä, oliko X Oy antanut Helsingin käräjäoi",
+      "title": "Hovioikeus kumosi ja palautti käräjäoikeuden tutkimattajättämispäätöksen: Takaisinsaantia yksipuoliseen tuomioon oli haettu määräajassa",
       "url": "https://www.edilex.fi/uutiset/103919",
       "date": "2026-11-18",
       "keywords": "",
@@ -131,24 +131,6 @@
       ],
       "tags": [
         "sopimussakko"
-      ]
-    },
-    {
-      "court": "Edilex",
-      "source": "Edilex, uutiset",
-      "title": "Lapsen tosiasiallinen asuinpaikka ratkaisi oikeuspaikan arvioinnin – hovioikeus kumosi päätöksen tutkimatta jättämisestä",
-      "url": "https://www.edilex.fi/uutiset/103889",
-      "date": "2026-11-16",
-      "keywords": "",
-      "summary": "",
-      "score": 26,
-      "topics": [
-        "Prosessi ja todistelu",
-        "Rajat ylittävät riidat"
-      ],
-      "tags": [
-        "tutkimatta jättäm",
-        "oikeuspaik"
       ]
     },
     {
