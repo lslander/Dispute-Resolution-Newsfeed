@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-19T14:19:53",
+  "generated": "2026-11-20T13:57:05",
   "window_days": 120,
   "sources": [
     {
@@ -71,7 +71,7 @@
       "name": "Edilex, uutiset",
       "court": "Edilex",
       "ok": true,
-      "fetched": 86,
+      "fetched": 82,
       "error": ""
     },
     {
@@ -104,22 +104,6 @@
     {
       "court": "Edilex",
       "source": "Edilex, uutiset",
-      "title": "Ajoneuvojen kiertotalousasetuksen täytäntöönpano on alkanut – tavoitteena edistää romuajoneuvojen osien uudelleenkäyttöä ja materiaalien kierrätystä",
-      "url": "https://www.edilex.fi/uutiset/103921",
-      "date": "2026-11-18",
-      "keywords": "",
-      "summary": "",
-      "score": 23,
-      "topics": [
-        "Täytäntöönpano ja turvaamistoimet"
-      ],
-      "tags": [
-        "täytäntöönpano"
-      ]
-    },
-    {
-      "court": "Edilex",
-      "source": "Edilex, uutiset",
       "title": "Kuluttajariitalautakunta: Sopimussakkoa soviteltiin, kun vuokra-asunto muuttui putkiremontin vuoksi asumiskelvottomaksi",
       "url": "https://www.edilex.fi/uutiset/103916",
       "date": "2026-11-17",
@@ -131,58 +115,6 @@
       ],
       "tags": [
         "sopimussakko"
-      ]
-    },
-    {
-      "court": "Edilex",
-      "source": "Edilex, uutiset",
-      "title": "Lentomatkustajien vaatimusten perimiseen erikoistuneen yrityksen samaan konserniin kuuluneen asianajajan palkkio hyväksyttiin oikeudenkäyntikuluna, mutta tuntiveloitus alennetiin 200 euroon",
-      "url": "https://www.edilex.fi/uutiset/103865",
-      "date": "2026-11-13",
-      "keywords": "",
-      "summary": "",
-      "score": 38,
-      "topics": [
-        "Prosessi ja todistelu"
-      ],
-      "tags": [
-        "tärkeä",
-        "oikeudenkäyn",
-        "oikeudenkäyntikul"
-      ]
-    },
-    {
-      "court": "Edilex",
-      "source": "Edilex, uutiset",
-      "title": "Hovioikeus: Kanteensa peruuttanut luotonantaja velvoitettiin korvaamaan vastapuolen oikeudenkäyntikulut sovinnon jälkeen",
-      "url": "https://www.edilex.fi/uutiset/103839",
-      "date": "2026-11-12",
-      "keywords": "",
-      "summary": "",
-      "score": 38,
-      "topics": [
-        "Prosessi ja todistelu"
-      ],
-      "tags": [
-        "tärkeä",
-        "oikeudenkäyn",
-        "oikeudenkäyntikul"
-      ]
-    },
-    {
-      "court": "Edilex",
-      "source": "Edilex, uutiset",
-      "title": "Työnantaja sai vedota oikeudenkäynnissä työntekijän väkivaltaiseen käytökseen, vaikka irtisanominen oli tehty tuotannollisilla ja taloudellisilla perusteilla Hovioikeus ei myöntänyt jatkokäsittelylupa",
-      "url": "https://www.edilex.fi/uutiset/103840",
-      "date": "2026-11-12",
-      "keywords": "",
-      "summary": "",
-      "score": 23,
-      "topics": [
-        "Prosessi ja todistelu"
-      ],
-      "tags": [
-        "oikeudenkäyn"
       ]
     },
     {
