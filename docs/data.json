@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-21T13:24:11",
+  "generated": "2026-11-22T13:15:03",
   "window_days": 120,
   "sources": [
     {
@@ -71,7 +71,7 @@
       "name": "Edilex, uutiset",
       "court": "Edilex",
       "ok": true,
-      "fetched": 81,
+      "fetched": 80,
       "error": ""
     },
     {
@@ -115,6 +115,24 @@
       ],
       "tags": [
         "sopimussakko"
+      ]
+    },
+    {
+      "court": "Edilex",
+      "source": "Edilex, uutiset",
+      "title": "Lapsen tosiasiallinen asuinpaikka ratkaisi oikeuspaikan arvioinnin – hovioikeus kumosi päätöksen tutkimatta jättämisestä",
+      "url": "https://www.edilex.fi/uutiset/103889",
+      "date": "2026-11-16",
+      "keywords": "",
+      "summary": "",
+      "score": 26,
+      "topics": [
+        "Prosessi ja todistelu",
+        "Rajat ylittävät riidat"
+      ],
+      "tags": [
+        "tutkimatta jättäm",
+        "oikeuspaik"
       ]
     },
     {
