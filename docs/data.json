@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-22T13:15:03",
+  "generated": "2026-11-23T15:53:08",
   "window_days": 120,
   "sources": [
     {
@@ -71,7 +71,7 @@
       "name": "Edilex, uutiset",
       "court": "Edilex",
       "ok": true,
-      "fetched": 80,
+      "fetched": 77,
       "error": ""
     },
     {
@@ -118,21 +118,19 @@
       ]
     },
     {
-      "court": "Edilex",
-      "source": "Edilex, uutiset",
-      "title": "Lapsen tosiasiallinen asuinpaikka ratkaisi oikeuspaikan arvioinnin – hovioikeus kumosi päätöksen tutkimatta jättämisestä",
-      "url": "https://www.edilex.fi/uutiset/103889",
+      "court": "MAO",
+      "source": "Markkinaoikeuden ratkaisut",
+      "title": "MAO:558/2026",
+      "url": "https://www.markkinaoikeus.fi/ratkaisut/ratkaisujen-arkisto/mao558-2026/",
       "date": "2026-11-16",
-      "keywords": "",
+      "keywords": "tutkimatta jättäminen",
       "summary": "",
-      "score": 26,
+      "score": 23,
       "topics": [
-        "Prosessi ja todistelu",
-        "Rajat ylittävät riidat"
+        "Prosessi ja todistelu"
       ],
       "tags": [
-        "tutkimatta jättäm",
-        "oikeuspaik"
+        "tutkimatta jättäm"
       ]
     },
     {
