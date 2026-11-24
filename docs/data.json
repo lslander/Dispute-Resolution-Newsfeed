@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-23T15:53:08",
+  "generated": "2026-11-24T15:44:36",
   "window_days": 120,
   "sources": [
     {
@@ -71,7 +71,7 @@
       "name": "Edilex, uutiset",
       "court": "Edilex",
       "ok": true,
-      "fetched": 77,
+      "fetched": 76,
       "error": ""
     },
     {
