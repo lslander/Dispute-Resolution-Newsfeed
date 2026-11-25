@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-24T15:44:36",
+  "generated": "2026-11-25T15:29:18",
   "window_days": 120,
   "sources": [
     {
@@ -85,28 +85,43 @@
   ],
   "items": [
     {
-      "court": "Edilex",
-      "source": "Edilex, uutiset",
-      "title": "Hovioikeus kumosi ja palautti käräjäoikeuden tutkimattajättämispäätöksen: Takaisinsaantia yksipuoliseen tuomioon oli haettu määräajassa",
-      "url": "https://www.edilex.fi/uutiset/103919",
-      "date": "2026-11-18",
-      "keywords": "",
+      "court": "KKO",
+      "source": "Korkeimman oikeuden ennakkopäätökset",
+      "title": "KKO:2026:84",
+      "url": "https://www.korkeinoikeus.fi/ennakkopaatokset/ennakkopaatokset-vuosittain/kko202684/",
+      "date": "2026-11-25",
+      "keywords": "Vahingonkorvaus , Syyttömästi vangitun korvaus",
       "summary": "",
-      "score": 23,
+      "score": 33,
       "topics": [
-        "Prosessi ja todistelu",
-        "Täytäntöönpano ja turvaamistoimet"
+        "Sopimus ja vahingonkorvaus"
       ],
       "tags": [
-        "takaisinsaan"
+        "vahingonkorvaus"
       ]
     },
     {
       "court": "Edilex",
       "source": "Edilex, uutiset",
-      "title": "Kuluttajariitalautakunta: Sopimussakkoa soviteltiin, kun vuokra-asunto muuttui putkiremontin vuoksi asumiskelvottomaksi",
-      "url": "https://www.edilex.fi/uutiset/103916",
-      "date": "2026-11-17",
+      "title": "Hovioikeus: Oikeudenkäynnin viivästyminen Oikeudenkäynnin kesto oli ollut 4 vuotta ja 9 kuukautta. Asiassa ei tullut ilmi, että viivästys olisi johtunut asianosaisiin liittyvistä syistä. Asian laatu j",
+      "url": "https://www.edilex.fi/uutiset/104097",
+      "date": "2026-11-25",
+      "keywords": "",
+      "summary": "",
+      "score": 23,
+      "topics": [
+        "Prosessi ja todistelu"
+      ],
+      "tags": [
+        "oikeudenkäyn"
+      ]
+    },
+    {
+      "court": "Edilex",
+      "source": "Edilex, uutiset",
+      "title": "Hovioikeus linjasi lentoviivästysten kohtuullista reklamaatioaikaa - ennakkoratkaisua EU-tuomioistuimelta ei pyydetty",
+      "url": "https://www.edilex.fi/uutiset/104082",
+      "date": "2026-11-25",
       "keywords": "",
       "summary": "",
       "score": 23,
@@ -114,7 +129,7 @@
         "Sopimus ja vahingonkorvaus"
       ],
       "tags": [
-        "sopimussakko"
+        "reklamaatio"
       ]
     },
     {
@@ -164,22 +179,6 @@
       "tags": [
         "oikeudenkäyn",
         "ylimääräinen muutoksenhaku"
-      ]
-    },
-    {
-      "court": "Asianajajaliitto",
-      "source": "Suomen Asianajajaliitto",
-      "title": "Lausunto ihmiskaupan vastaisesta toiminnasta tehdyn Euroopan neuvoston yleissopimuksen täytäntöönpanon neljännestä valvontakierroksesta",
-      "url": "https://asianajajat.fi/2026/10/14/lausunto-euroopan-neuvostolle-ihmiskaupan-vastaisesta-toiminnasta-tehdyn-yleissopimuksen-taytantoonpanon-neljannesta-valvontakierroksesta/",
-      "date": "2026-10-14",
-      "keywords": "",
-      "summary": "Artikkeli  julkaistiin ensimmäisen kerran Suomen Asianajajat .",
-      "score": 13,
-      "topics": [
-        "Täytäntöönpano ja turvaamistoimet"
-      ],
-      "tags": [
-        "täytäntöönpano"
       ]
     },
     {
