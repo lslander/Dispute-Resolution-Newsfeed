@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-25T15:29:18",
+  "generated": "2026-11-26T15:00:38",
   "window_days": 120,
   "sources": [
     {
@@ -55,7 +55,7 @@
       "name": "Unionin tuomioistuin (EUT ja unionin yleinen tuomioistuin)",
       "court": "EUT",
       "ok": true,
-      "fetched": 7,
+      "fetched": 8,
       "error": ""
     },
     {
@@ -71,7 +71,7 @@
       "name": "Edilex, uutiset",
       "court": "Edilex",
       "ok": true,
-      "fetched": 76,
+      "fetched": 81,
       "error": ""
     },
     {
@@ -84,6 +84,44 @@
     }
   ],
   "items": [
+    {
+      "court": "EUT",
+      "source": "Unionin tuomioistuin (EUT ja unionin yleinen tuomioistuin)",
+      "title": "C-515/25 NL, représentée par AG et EN vastaan WizzAir Hungary (tuomio)",
+      "url": "https://eur-lex.europa.eu/legal-content/FI/TXT/?uri=CELEX:62025CJ0515",
+      "date": "2026-11-26",
+      "keywords": "Ennakkoratkaisupyyntö – Oikeudellinen yhteistyö yksityisoikeudellisissa asioissa – Tuomioistuimen toimivalta sekä tuomioiden tunnustaminen ja täytäntöönpano siviili- ja kauppaoikeuden alalla – Asetus (EU) N:o 1215/2012 – 5 artiklan 1 kohta – 7 artiklan 1 kohdan a alakohta ja 5 kohta – Korvaus viivästyneestä lennosta – Kansallinen maksamismääräysmenettely – Maksamismääräyksen antamista koskevat kansalliset edellytykset – Velallisen kotipaikka kyseisessä jäsenvaltiossa – Velallisen vastustuksesta seuraava oikeudenkäyntimenettely – Pätevyyden liitännäinen tutkiminen – Erityinen toimivalta – Sivul",
+      "summary": "ECLI:EU:C:2026:1030",
+      "score": 39,
+      "topics": [
+        "Prosessi ja todistelu",
+        "Täytäntöönpano ja turvaamistoimet",
+        "Rajat ylittävät riidat"
+      ],
+      "tags": [
+        "oikeudenkäyn",
+        "täytäntöönpano",
+        "toimivalta"
+      ]
+    },
+    {
+      "court": "Edilex",
+      "source": "Edilex, uutiset",
+      "title": "Hovioikeus: Vakuutuskorvaus, prekluusio, tarpeeton oikeudenkäynti ja oikeudenkäyntikulut",
+      "url": "https://www.edilex.fi/uutiset/104099",
+      "date": "2026-11-26",
+      "keywords": "",
+      "summary": "",
+      "score": 38,
+      "topics": [
+        "Prosessi ja todistelu"
+      ],
+      "tags": [
+        "tärkeä",
+        "oikeudenkäyn",
+        "oikeudenkäyntikul"
+      ]
+    },
     {
       "court": "KKO",
       "source": "Korkeimman oikeuden ennakkopäätökset",
@@ -103,7 +141,7 @@
     {
       "court": "Edilex",
       "source": "Edilex, uutiset",
-      "title": "Hovioikeus: Oikeudenkäynnin viivästyminen Oikeudenkäynnin kesto oli ollut 4 vuotta ja 9 kuukautta. Asiassa ei tullut ilmi, että viivästys olisi johtunut asianosaisiin liittyvistä syistä. Asian laatu j",
+      "title": "Hovioikeus: Oikeudenkäynnin viivästyminen",
       "url": "https://www.edilex.fi/uutiset/104097",
       "date": "2026-11-25",
       "keywords": "",
@@ -196,24 +234,6 @@
       "tags": [
         "tärkeä",
         "turvaamistoim"
-      ]
-    },
-    {
-      "court": "EUT",
-      "source": "Unionin tuomioistuin (EUT ja unionin yleinen tuomioistuin)",
-      "title": "C-459/25, tuomio",
-      "url": "https://eur-lex.europa.eu/legal-content/FI/TXT/?uri=CELEX:62025CJ0459",
-      "date": "2026-10-01",
-      "keywords": "Ennakkoratkaisupyyntö – Kuluttajansuoja – Direktiivi 93/13/ETY – 6 artiklan 1 kohta ja 7 artiklan 1 kohta – Kuluttajasopimusten kohtuuttomat ehdot – Vuokrasopimus – Ehto, jonka mukaan vuokralainen vastaa kaikista tuomioistuinmenettelystä aiheutuvista kuluista, jos hän ei täytä sopimusvelvoitteitaan – Kyseisen ehdon kohtuuttomaksi toteamisen vaikutukset – Kansallisen oikeuden dispositiivisten säännösten soveltaminen – Oikeudenkäyntikulujen jakaminen ja vahvistaminen tuomioistuinmenettelyssä – Jäsenvaltioiden menettelyllinen autonomia – Tehokkuusperiaate",
-      "summary": "ECLI:EU:C:2026:810",
-      "score": 48,
-      "topics": [
-        "Prosessi ja todistelu"
-      ],
-      "tags": [
-        "tärkeä",
-        "oikeudenkäyn",
-        "oikeudenkäyntikul"
       ]
     },
     {
