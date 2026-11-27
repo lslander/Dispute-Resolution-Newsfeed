@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-26T15:00:38",
+  "generated": "2026-11-27T14:59:10",
   "window_days": 120,
   "sources": [
     {
@@ -78,9 +78,9 @@
       "id": "asianajajat",
       "name": "Suomen Asianajajaliitto",
       "court": "Asianajajaliitto",
-      "ok": true,
-      "fetched": 10,
-      "error": ""
+      "ok": false,
+      "fetched": 0,
+      "error": "HTTPSConnectionPool(host='asianajajat.fi', port=443): Max retries exceeded with url: /feed/ (Caused by NewConnectionError(\"HTTPSConnection(host='asianajajat.fi', port=443): Failed to establish a new c"
     }
   ],
   "items": [
@@ -141,22 +141,6 @@
     {
       "court": "Edilex",
       "source": "Edilex, uutiset",
-      "title": "Hovioikeus: Oikeudenkäynnin viivästyminen",
-      "url": "https://www.edilex.fi/uutiset/104097",
-      "date": "2026-11-25",
-      "keywords": "",
-      "summary": "",
-      "score": 23,
-      "topics": [
-        "Prosessi ja todistelu"
-      ],
-      "tags": [
-        "oikeudenkäyn"
-      ]
-    },
-    {
-      "court": "Edilex",
-      "source": "Edilex, uutiset",
       "title": "Hovioikeus linjasi lentoviivästysten kohtuullista reklamaatioaikaa - ennakkoratkaisua EU-tuomioistuimelta ei pyydetty",
       "url": "https://www.edilex.fi/uutiset/104082",
       "date": "2026-11-25",
@@ -168,6 +152,22 @@
       ],
       "tags": [
         "reklamaatio"
+      ]
+    },
+    {
+      "court": "Edilex",
+      "source": "Edilex, uutiset",
+      "title": "Hovioikeus: Oikeudenkäynnin viivästyminen",
+      "url": "https://www.edilex.fi/uutiset/104097",
+      "date": "2026-11-25",
+      "keywords": "",
+      "summary": "",
+      "score": 23,
+      "topics": [
+        "Prosessi ja todistelu"
+      ],
+      "tags": [
+        "oikeudenkäyn"
       ]
     },
     {
