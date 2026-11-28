@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-27T14:59:10",
+  "generated": "2026-11-28T14:07:00",
   "window_days": 120,
   "sources": [
     {
@@ -78,9 +78,9 @@
       "id": "asianajajat",
       "name": "Suomen Asianajajaliitto",
       "court": "Asianajajaliitto",
-      "ok": false,
-      "fetched": 0,
-      "error": "HTTPSConnectionPool(host='asianajajat.fi', port=443): Max retries exceeded with url: /feed/ (Caused by NewConnectionError(\"HTTPSConnection(host='asianajajat.fi', port=443): Failed to establish a new c"
+      "ok": true,
+      "fetched": 10,
+      "error": ""
     }
   ],
   "items": [
